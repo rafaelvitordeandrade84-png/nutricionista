@@ -5,211 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hero Section</title>
 
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@400;600;700&display=swap" />
 
-  <!-- ✅ CSS CRÍTICO — inline, renderiza o hero imediatamente -->
-  <style>
+  <!-- Apenas Inter + Poppins (otimizado) -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@400;600;700&display=swap"
+  />
 
-
-
-    .body {
-      font-family: 'Inter', sans-serif;
-      background: #e8f5e9;
-      display: grid;
-      overflow-x: hidden;
-      padding-top: 2rem;
-      margin-bottom: 4rem;
-    }
-
-    .hero {
-      position: relative;
-      width: 100%;
-      padding-left: clamp(1rem, 5vw, 4rem);
-      padding-right: clamp(1rem, 5vw, 4rem);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .hero__left {
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .hero__tag {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      padding: .45rem 1rem;
-      background: rgba(240,255,242,0.637);
-      border: 1px solid rgba(46,125,50,0.25);
-      border-radius: 999px;
-      font-size: .72rem;
-      font-weight: 500;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: #2e7d32;
-      width: fit-content;
-    }
-
-    .hero__tag::before {
-      content: '';
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #2e7d32;
-      flex-shrink: 0;
-    }
-
-    .hero__title {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(1.9rem, 3.5vw, 3rem);
-      font-weight: 600;
-      line-height: 1.2;
-      color: #222;
-      max-width: 20ch;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero__title em {
-      font-style: italic;
-      background: linear-gradient(180deg, #2e7d32, #66bb6a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero__desc {
-      font-size: clamp(.85rem, 1.3vw, .95rem);
-      line-height: 1.65;
-      color: #222;
-      max-width: 60ch;
-    }
-
-    .hero__checklist {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .55rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero__checklist li {
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      font-size: clamp(.8rem, 1.2vw, .88rem);
-      color: #4a4a4a;
-      margin-bottom: 0.2rem;
-    }
-
-    .hero__checklist li::before {
-      content: '';
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      background: #2e7d32 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/11px no-repeat;
-      flex-shrink: 0;
-    }
-
-    .hero__cta {
-      display: inline-flex;
-      align-items: center;
-      gap: .65rem;
-      padding: .9rem 1.75rem;
-      background: linear-gradient(135deg, #2e7d32, #66bb6a);
-      color: #fff;
-      font-size: .82rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      text-decoration: none;
-      width: fit-content;
-      transition: background .25s, transform .2s;
-    }
-
-    .hero__cta svg {
-      width: 16px; height: 16px;
-      background: rgba(255,255,255,.25);
-      border-radius: 50%;
-      padding: 2px;
-      flex-shrink: 0;
-    }
-
-    .hero__right {
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-    }
-
-    .hero__img {
-      width: 100%;
-      max-width: 80%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-    }
-
-    .ticker {
-      width: 100%;
-      background: #2e7d32;
-      overflow: hidden;
-      padding: 6px 0;
-      position: relative;
-    }
-
-    .ticker__track {
-      display: flex;
-      width: max-content;
-      animation: ticker-scroll 22s linear infinite;
-    }
-
-    .ticker__set {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .ticker__item {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      padding: 0 28px;
-      font-size: .68rem;
-      font-weight: 500;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: #fff;
-      white-space: nowrap;
-    }
-
-    @keyframes ticker-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    @media (max-width: 1000px) {
-      .hero { flex-direction: column; text-align: center; padding-top: 2.5rem; }
-      .hero__title { margin: 0 auto; font-size: clamp(1.6rem, 6vw, 2rem); }
-      .hero__checklist { align-items: center; }
-      .hero__tag, .hero__cta { margin: 0 auto; }
-      .hero__right { width: 100%; justify-content: center; }
-      .hero__img { max-width: 80%; margin: 0 auto; }
-    }
-  </style>
-
-  <!-- ✅ CSS restante — não bloqueia o render -->
-  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="style.css" /></noscript>
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -1439,9 +1246,6 @@ Agendar consulta
 
 </body>
 </html>
-
-
-
 
 
 
